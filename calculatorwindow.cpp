@@ -6,6 +6,7 @@ CalculatorWindow::CalculatorWindow(QWidget *parent)
     , ui(new Ui::CalculatorWindow)
 {
     ui->setupUi(this);
+    this->statusBar()->setSizeGripEnabled(false);
 }
 
 CalculatorWindow::~CalculatorWindow()
