@@ -15,6 +15,11 @@ public:
     CalculatorWindow(QWidget *parent = nullptr);
     ~CalculatorWindow();
 
+private slots:
+    void on_Zero_clicked();
+
+    void on_Evaluate_clicked();
+
 private:
     Ui::CalculatorWindow *ui;
 };

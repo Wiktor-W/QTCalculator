@@ -14,3 +14,13 @@ CalculatorWindow::~CalculatorWindow()
     delete ui;
 }
 
+
+void CalculatorWindow::on_Zero_clicked()
+{
+}
+
+
+void CalculatorWindow::on_Evaluate_clicked()
+{
+}
+
