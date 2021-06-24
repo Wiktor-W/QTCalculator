@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>341</width>
-    <height>422</height>
+    <width>337</width>
+    <height>433</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -274,7 +274,7 @@
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QPushButton" name="deleteLastSymbol">
+   <widget class="QPushButton" name="backspace">
     <property name="geometry">
      <rect>
       <x>170</x>
@@ -284,7 +284,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>Delete</string>
+     <string>Backspace</string>
     </property>
    </widget>
   </widget>
@@ -293,7 +293,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>341</width>
+     <width>337</width>
      <height>21</height>
     </rect>
    </property>

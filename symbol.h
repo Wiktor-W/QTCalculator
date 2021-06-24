@@ -11,6 +11,7 @@ private:
 public:
     Symbol(char newChar);
     Symbol(int newValue);
+    Symbol();
     char getChar(){ return symbol; };
     int getValue(){ return value; };
     int getPriority(){ return priority; };

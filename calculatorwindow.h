@@ -52,6 +52,8 @@ private slots:
 
     void on_RightBracket_clicked();
 
+    void on_backspace_clicked();
+
 private:
     Ui::CalculatorWindow *ui;
     QString expression;

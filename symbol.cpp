@@ -36,5 +36,7 @@ Symbol::Symbol(int newValue)
 {
     value = newValue;
 }
-
+Symbol::Symbol(){
+    value = 0;
+}
 
