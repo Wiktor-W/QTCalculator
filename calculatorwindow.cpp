@@ -102,7 +102,7 @@ void CalculatorWindow::on_Nine_clicked()
 
 void CalculatorWindow::on_Add_clicked()
 {
-    expression += "+";
+    expression += " + ";
     stack.push(Symbol('+'));
     ui->numberDisplay->setText(expression);
 }
@@ -110,7 +110,7 @@ void CalculatorWindow::on_Add_clicked()
 
 void CalculatorWindow::on_Subtract_clicked()
 {
-    expression += "-";
+    expression += " - ";
     stack.push(Symbol('-'));
     ui->numberDisplay->setText(expression);
 }
@@ -118,7 +118,7 @@ void CalculatorWindow::on_Subtract_clicked()
 
 void CalculatorWindow::on_Multiply_clicked()
 {
-    expression += "*";
+    expression += " * ";
     stack.push(Symbol('*'));
     ui->numberDisplay->setText(expression);
 }
@@ -126,7 +126,7 @@ void CalculatorWindow::on_Multiply_clicked()
 
 void CalculatorWindow::on_Divide_clicked()
 {
-    expression += "/";
+    expression += " / ";
     stack.push(Symbol('/'));
     ui->numberDisplay->setText(expression);
 }
