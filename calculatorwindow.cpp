@@ -151,7 +151,9 @@ void CalculatorWindow::on_RightBracket_clicked()
 void CalculatorWindow::on_backspace_clicked()
 {
     expression.chop(1);
-    stack.pop();
+    if (!stack.isEmpty()){
+        stack.pop();
+    }
     ui->numberDisplay->setText(expression);
 }
 
