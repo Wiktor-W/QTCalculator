@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>341</width>
-    <height>384</height>
+    <height>422</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -35,7 +35,7 @@
     <property name="geometry">
      <rect>
       <x>11</x>
-      <y>150</y>
+      <y>180</y>
       <width>75</width>
       <height>41</height>
      </rect>
@@ -48,7 +48,7 @@
     <property name="geometry">
      <rect>
       <x>254</x>
-      <y>258</y>
+      <y>288</y>
       <width>75</width>
       <height>41</height>
      </rect>
@@ -61,7 +61,7 @@
     <property name="geometry">
      <rect>
       <x>173</x>
-      <y>204</y>
+      <y>234</y>
       <width>75</width>
       <height>41</height>
      </rect>
@@ -74,7 +74,7 @@
     <property name="geometry">
      <rect>
       <x>11</x>
-      <y>96</y>
+      <y>126</y>
       <width>75</width>
       <height>41</height>
      </rect>
@@ -87,7 +87,7 @@
     <property name="geometry">
      <rect>
       <x>92</x>
-      <y>258</y>
+      <y>288</y>
       <width>75</width>
       <height>41</height>
      </rect>
@@ -100,7 +100,7 @@
     <property name="geometry">
      <rect>
       <x>92</x>
-      <y>204</y>
+      <y>234</y>
       <width>75</width>
       <height>41</height>
      </rect>
@@ -113,7 +113,7 @@
     <property name="geometry">
      <rect>
       <x>173</x>
-      <y>258</y>
+      <y>288</y>
       <width>75</width>
       <height>41</height>
      </rect>
@@ -126,7 +126,7 @@
     <property name="geometry">
      <rect>
       <x>254</x>
-      <y>96</y>
+      <y>126</y>
       <width>75</width>
       <height>41</height>
      </rect>
@@ -139,7 +139,7 @@
     <property name="geometry">
      <rect>
       <x>254</x>
-      <y>204</y>
+      <y>234</y>
       <width>75</width>
       <height>41</height>
      </rect>
@@ -152,7 +152,7 @@
     <property name="geometry">
      <rect>
       <x>11</x>
-      <y>258</y>
+      <y>288</y>
       <width>75</width>
       <height>41</height>
      </rect>
@@ -165,7 +165,7 @@
     <property name="geometry">
      <rect>
       <x>254</x>
-      <y>150</y>
+      <y>180</y>
       <width>75</width>
       <height>41</height>
      </rect>
@@ -178,7 +178,7 @@
     <property name="geometry">
      <rect>
       <x>92</x>
-      <y>150</y>
+      <y>180</y>
       <width>75</width>
       <height>41</height>
      </rect>
@@ -191,7 +191,7 @@
     <property name="geometry">
      <rect>
       <x>173</x>
-      <y>96</y>
+      <y>126</y>
       <width>75</width>
       <height>41</height>
      </rect>
@@ -204,7 +204,7 @@
     <property name="geometry">
      <rect>
       <x>173</x>
-      <y>150</y>
+      <y>180</y>
       <width>75</width>
       <height>41</height>
      </rect>
@@ -217,7 +217,7 @@
     <property name="geometry">
      <rect>
       <x>11</x>
-      <y>204</y>
+      <y>234</y>
       <width>75</width>
       <height>41</height>
      </rect>
@@ -230,7 +230,7 @@
     <property name="geometry">
      <rect>
       <x>92</x>
-      <y>96</y>
+      <y>126</y>
       <width>75</width>
       <height>41</height>
      </rect>
@@ -243,8 +243,8 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>310</y>
-      <width>321</width>
+      <y>340</y>
+      <width>155</width>
       <height>31</height>
      </rect>
     </property>
@@ -272,6 +272,19 @@
     </property>
     <property name="readOnly">
      <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="deleteLastSymbol">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>340</y>
+      <width>161</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Delete</string>
     </property>
    </widget>
   </widget>
