@@ -2,6 +2,8 @@
 #define CALCULATORWINDOW_H
 
 #include <QMainWindow>
+#include <QStack>
+#include <symbol.h>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class CalculatorWindow; }
@@ -53,5 +55,6 @@ private slots:
 private:
     Ui::CalculatorWindow *ui;
     QString expression;
+    QStack<Symbol> stack;
 };
 #endif // CALCULATORWINDOW_H

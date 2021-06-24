@@ -10,10 +10,12 @@ CONFIG += c++11
 
 SOURCES += \
     main.cpp \
-    calculatorwindow.cpp
+    calculatorwindow.cpp \
+    symbol.cpp
 
 HEADERS += \
-    calculatorwindow.h
+    calculatorwindow.h \
+    symbol.h
 
 FORMS += \
     calculatorwindow.ui
