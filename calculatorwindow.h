@@ -3,6 +3,8 @@
 
 #include <QMainWindow>
 #include <QStack>
+#include <QQueue>
+#include <QList>
 #include <symbol.h>
 
 QT_BEGIN_NAMESPACE
@@ -16,6 +18,7 @@ class CalculatorWindow : public QMainWindow
 public:
     CalculatorWindow(QWidget *parent = nullptr);
     ~CalculatorWindow();
+    void convertToPostfix();
 
 private slots:
     void on_Zero_clicked();
@@ -57,6 +60,8 @@ private slots:
 private:
     Ui::CalculatorWindow *ui;
     QString expression;
-    QStack<Symbol> stack;
+    QList<Symbol> list;
+    QStack<Symbol> operatorStack;
+    QQueue<Symbol> outputQueue;
 };
 #endif // CALCULATORWINDOW_H
