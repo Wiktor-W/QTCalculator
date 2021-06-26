@@ -20,9 +20,9 @@ CalculatorWindow::~CalculatorWindow()
 void CalculatorWindow::on_Evaluate_clicked()
 {
     convertToPostfix();
-    std::cout << "converted to postfix: " << std::endl;
-    printPostfix();
-    ui->numberDisplay->setText(QString::fromStdString("3"));
+    //printPostfix();
+    evaluateReversePolish();
+    std::cout << expression.toStdString() << std::endl;
 }
 
 void CalculatorWindow::on_Zero_clicked()
@@ -39,14 +39,12 @@ void CalculatorWindow::on_One_clicked()
     ui->numberDisplay->setText(expression);
 }
 
-
 void CalculatorWindow::on_Two_clicked()
 {
     expression += "2";
     inputQueue.append(Symbol(2));
     ui->numberDisplay->setText(expression);
 }
-
 
 void CalculatorWindow::on_Three_clicked()
 {
@@ -55,14 +53,12 @@ void CalculatorWindow::on_Three_clicked()
     ui->numberDisplay->setText(expression);
 }
 
-
 void CalculatorWindow::on_Four_clicked()
 {
     expression += "4";
     inputQueue.append(Symbol(4));
     ui->numberDisplay->setText(expression);
 }
-
 
 void CalculatorWindow::on_Five_clicked()
 {
@@ -71,14 +67,12 @@ void CalculatorWindow::on_Five_clicked()
     ui->numberDisplay->setText(expression);
 }
 
-
 void CalculatorWindow::on_Six_clicked()
 {
     expression += "6";
     inputQueue.append(Symbol(6));
     ui->numberDisplay->setText(expression);
 }
-
 
 void CalculatorWindow::on_Seven_clicked()
 {
@@ -87,14 +81,12 @@ void CalculatorWindow::on_Seven_clicked()
     ui->numberDisplay->setText(expression);
 }
 
-
 void CalculatorWindow::on_Eight_clicked()
 {
     expression += "8";
     inputQueue.append(Symbol(8));
     ui->numberDisplay->setText(expression);
 }
-
 
 void CalculatorWindow::on_Nine_clicked()
 {
@@ -103,14 +95,12 @@ void CalculatorWindow::on_Nine_clicked()
     ui->numberDisplay->setText(expression);
 }
 
-
 void CalculatorWindow::on_Add_clicked()
 {
     expression += " + ";
     inputQueue.append(Symbol('+'));
     ui->numberDisplay->setText(expression);
 }
-
 
 void CalculatorWindow::on_Subtract_clicked()
 {
@@ -119,14 +109,12 @@ void CalculatorWindow::on_Subtract_clicked()
     ui->numberDisplay->setText(expression);
 }
 
-
 void CalculatorWindow::on_Multiply_clicked()
 {
     expression += " * ";
     inputQueue.append(Symbol('*'));
     ui->numberDisplay->setText(expression);
 }
-
 
 void CalculatorWindow::on_Divide_clicked()
 {
@@ -135,7 +123,6 @@ void CalculatorWindow::on_Divide_clicked()
     ui->numberDisplay->setText(expression);
 }
 
-
 void CalculatorWindow::on_LeftBracket_clicked()
 {
     expression += "(";
@@ -143,14 +130,12 @@ void CalculatorWindow::on_LeftBracket_clicked()
     ui->numberDisplay->setText(expression);
 }
 
-
 void CalculatorWindow::on_RightBracket_clicked()
 {
     expression += ")";
     inputQueue.append(Symbol(')'));
     ui->numberDisplay->setText(expression);
 }
-
 
 void CalculatorWindow::on_backspace_clicked()
 {
@@ -204,6 +189,40 @@ void CalculatorWindow::printPostfix(){
             std::cout << cur.getChar() << std::endl;
         } else if (cur.isNumber()){
             std::cout << cur.getValue() << std::endl;
+        }
+    }
+}
+
+void CalculatorWindow::evaluateReversePolish(){
+    std::cout << "evaluated:" << std::endl;
+    Symbol cur;
+    while (!outputQueue.isEmpty()){
+        while(!outputQueue.head().isCharacter()){
+            cur = outputQueue.dequeue();
+            operatorStack.push(cur);
+        }
+        int value2 = operatorStack.pop().getValue();
+        int value1 = operatorStack.pop().getValue();
+        cur = outputQueue.dequeue();
+        switch (cur.getChar()) {
+            case '+':
+              operatorStack.push(value1 + value2);
+              break;
+            case '-':
+              operatorStack.push(value1 - value2);
+              break;
+            case '*':
+              operatorStack.push(value1 * value2);
+              break;
+            case '/':
+              operatorStack.push(value1 / value2);
+              break;
+            default:
+              std::cout << "An error has occured" << std::endl;
+        }
+        if (operatorStack.size() == 1){
+            expression = QString::fromStdString(std::to_string(operatorStack.pop().getValue()));
+            ui->numberDisplay->setText(expression);
         }
     }
 }

@@ -20,6 +20,7 @@ public:
     ~CalculatorWindow();
     void convertToPostfix();
     void printPostfix();
+    void evaluateReversePolish();
 
 private slots:
     void on_Zero_clicked();
