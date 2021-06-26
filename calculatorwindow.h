@@ -19,6 +19,7 @@ public:
     CalculatorWindow(QWidget *parent = nullptr);
     ~CalculatorWindow();
     void convertToPostfix();
+    void printPostfix();
 
 private slots:
     void on_Zero_clicked();
@@ -60,7 +61,7 @@ private slots:
 private:
     Ui::CalculatorWindow *ui;
     QString expression;
-    QList<Symbol> list;
+    QQueue<Symbol> inputQueue;
     QStack<Symbol> operatorStack;
     QQueue<Symbol> outputQueue;
 };

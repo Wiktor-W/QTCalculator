@@ -1,6 +1,6 @@
 #ifndef SYMBOL_H
 #define SYMBOL_H
-
+#include <string>
 
 class Symbol
 {
@@ -19,6 +19,8 @@ public:
     int getPriority() const { return priority; };
     bool isNumber() const { return isNum; };
     bool isCharacter() const { return isChar; };
+    std::string charToString() const { return "" + symbol; }
+    std::string intToString() const { return "" + value; }
 };
 
 #endif // SYMBOL_H
