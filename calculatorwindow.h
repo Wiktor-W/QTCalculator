@@ -65,5 +65,6 @@ private:
     QQueue<Symbol> inputQueue;
     QStack<Symbol> operatorStack;
     QQueue<Symbol> outputQueue;
+    QString numInputBuff;
 };
 #endif // CALCULATORWINDOW_H

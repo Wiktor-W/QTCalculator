@@ -19,6 +19,10 @@ CalculatorWindow::~CalculatorWindow()
 
 void CalculatorWindow::on_Evaluate_clicked()
 {
+    if (numInputBuff != ""){
+        inputQueue.append(Symbol(numInputBuff.toInt()));
+        numInputBuff = "";
+    }
     convertToPostfix();
     //printPostfix();
     evaluateReversePolish();
@@ -28,76 +32,80 @@ void CalculatorWindow::on_Evaluate_clicked()
 void CalculatorWindow::on_Zero_clicked()
 {
     expression += "0";
-    inputQueue.append(Symbol(0));
+    numInputBuff.append("0");
     ui->numberDisplay->setText(expression);
 }
 
 void CalculatorWindow::on_One_clicked()
 {
     expression += "1";
-    inputQueue.append(Symbol(1));
+    numInputBuff.append("1");
     ui->numberDisplay->setText(expression);
 }
 
 void CalculatorWindow::on_Two_clicked()
 {
     expression += "2";
-    inputQueue.append(Symbol(2));
+    numInputBuff.append("2");
     ui->numberDisplay->setText(expression);
 }
 
 void CalculatorWindow::on_Three_clicked()
 {
     expression += "3";
-    inputQueue.append(Symbol(3));
+    numInputBuff.append("3");
     ui->numberDisplay->setText(expression);
 }
 
 void CalculatorWindow::on_Four_clicked()
 {
     expression += "4";
-    inputQueue.append(Symbol(4));
+    numInputBuff.append("4");
     ui->numberDisplay->setText(expression);
 }
 
 void CalculatorWindow::on_Five_clicked()
 {
     expression += "5";
-    inputQueue.append(Symbol(5));
+    numInputBuff.append("5");
     ui->numberDisplay->setText(expression);
 }
 
 void CalculatorWindow::on_Six_clicked()
 {
     expression += "6";
-    inputQueue.append(Symbol(6));
+    numInputBuff.append("6");
     ui->numberDisplay->setText(expression);
 }
 
 void CalculatorWindow::on_Seven_clicked()
 {
     expression += "7";
-    inputQueue.append(Symbol(7));
+    numInputBuff.append("7");
     ui->numberDisplay->setText(expression);
 }
 
 void CalculatorWindow::on_Eight_clicked()
 {
     expression += "8";
-    inputQueue.append(Symbol(8));
+    numInputBuff.append("8");
     ui->numberDisplay->setText(expression);
 }
 
 void CalculatorWindow::on_Nine_clicked()
 {
     expression += "9";
-    inputQueue.append(Symbol(9));
+    numInputBuff.append("9");
     ui->numberDisplay->setText(expression);
 }
 
 void CalculatorWindow::on_Add_clicked()
 {
     expression += " + ";
+    if (!numInputBuff.isEmpty()){
+        inputQueue.append(Symbol(numInputBuff.toInt()));
+        numInputBuff = "";
+    }
     inputQueue.append(Symbol('+'));
     ui->numberDisplay->setText(expression);
 }
@@ -105,6 +113,10 @@ void CalculatorWindow::on_Add_clicked()
 void CalculatorWindow::on_Subtract_clicked()
 {
     expression += " - ";
+    if (!numInputBuff.isEmpty()){
+        inputQueue.append(Symbol(numInputBuff.toInt()));
+        numInputBuff = "";
+    }
     inputQueue.append(Symbol('-'));
     ui->numberDisplay->setText(expression);
 }
@@ -112,6 +124,10 @@ void CalculatorWindow::on_Subtract_clicked()
 void CalculatorWindow::on_Multiply_clicked()
 {
     expression += " * ";
+    if (!numInputBuff.isEmpty()){
+        inputQueue.append(Symbol(numInputBuff.toInt()));
+        numInputBuff = "";
+    }
     inputQueue.append(Symbol('*'));
     ui->numberDisplay->setText(expression);
 }
@@ -119,6 +135,10 @@ void CalculatorWindow::on_Multiply_clicked()
 void CalculatorWindow::on_Divide_clicked()
 {
     expression += " / ";
+    if (numInputBuff != ""){
+        inputQueue.append(Symbol(numInputBuff.toInt()));
+        numInputBuff = "";
+    }
     inputQueue.append(Symbol('/'));
     ui->numberDisplay->setText(expression);
 }
