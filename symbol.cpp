@@ -44,7 +44,7 @@ Symbol::Symbol(char newSymbol)
         priority = 0;
     }
 }
-Symbol::Symbol(int newValue)
+Symbol::Symbol(float newValue)
 {
     value = newValue;
     isNum = true;

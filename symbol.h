@@ -5,22 +5,22 @@
 class Symbol
 {
 private:
-    int value;
+    float value;
     char symbol;
     int priority;
     bool isNum;
     bool isChar;
 public:
     Symbol(char newChar);
-    Symbol(int newValue);
+    Symbol(float newValue);
     Symbol();
     char getChar() const { return symbol; };
-    int getValue() const { return value; };
+    float getValue() const { return value; };
     int getPriority() const { return priority; };
     bool isNumber() const { return isNum; };
     bool isCharacter() const { return isChar; };
-    std::string charToString() const { return "" + symbol; }
-    std::string intToString() const { return "" + value; }
+    std::string symbolToString() const { return std::to_string(symbol); }
+    std::string valueToString() const { return std::to_string(value); }
 };
 
 #endif // SYMBOL_H

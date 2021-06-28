@@ -20,12 +20,12 @@ CalculatorWindow::~CalculatorWindow()
 void CalculatorWindow::on_Evaluate_clicked()
 {
     if (numInputBuff != ""){
-        inputQueue.append(Symbol(numInputBuff.toInt()));
+        inputQueue.append(Symbol(numInputBuff.toFloat()));
         numInputBuff = "";
     }
     convertToPostfix();
-    //printPostfix();
     evaluateReversePolish();
+    std::cout << "evaluated:" << std::endl;
     std::cout << expression.toStdString() << std::endl;
 }
 
@@ -103,7 +103,7 @@ void CalculatorWindow::on_Add_clicked()
 {
     expression += " + ";
     if (!numInputBuff.isEmpty()){
-        inputQueue.append(Symbol(numInputBuff.toInt()));
+        inputQueue.append(Symbol(numInputBuff.toFloat()));
         numInputBuff = "";
     }
     inputQueue.append(Symbol('+'));
@@ -114,7 +114,7 @@ void CalculatorWindow::on_Subtract_clicked()
 {
     expression += " - ";
     if (!numInputBuff.isEmpty()){
-        inputQueue.append(Symbol(numInputBuff.toInt()));
+        inputQueue.append(Symbol(numInputBuff.toFloat()));
         numInputBuff = "";
     }
     inputQueue.append(Symbol('-'));
@@ -125,7 +125,7 @@ void CalculatorWindow::on_Multiply_clicked()
 {
     expression += " * ";
     if (!numInputBuff.isEmpty()){
-        inputQueue.append(Symbol(numInputBuff.toInt()));
+        inputQueue.append(Symbol(numInputBuff.toFloat()));
         numInputBuff = "";
     }
     inputQueue.append(Symbol('*'));
@@ -136,7 +136,7 @@ void CalculatorWindow::on_Divide_clicked()
 {
     expression += " / ";
     if (numInputBuff != ""){
-        inputQueue.append(Symbol(numInputBuff.toInt()));
+        inputQueue.append(Symbol(numInputBuff.toFloat()));
         numInputBuff = "";
     }
     inputQueue.append(Symbol('/'));
@@ -153,6 +153,10 @@ void CalculatorWindow::on_LeftBracket_clicked()
 void CalculatorWindow::on_RightBracket_clicked()
 {
     expression += ")";
+    if (numInputBuff != ""){
+        inputQueue.append(Symbol(numInputBuff.toFloat()));
+        numInputBuff = "";
+    }
     inputQueue.append(Symbol(')'));
     ui->numberDisplay->setText(expression);
 }
@@ -169,7 +173,6 @@ void CalculatorWindow::on_backspace_clicked()
 //No parameters as there is only one input that can be converted to postfix
 void CalculatorWindow::convertToPostfix(){
     int i = 0;
-    //for (int j = 0; j < )
     while(!inputQueue.isEmpty()){
         Symbol cur = inputQueue.dequeue();
         if (cur.isNumber()){
@@ -214,15 +217,14 @@ void CalculatorWindow::printPostfix(){
 }
 
 void CalculatorWindow::evaluateReversePolish(){
-    std::cout << "evaluated:" << std::endl;
     Symbol cur;
     while (!outputQueue.isEmpty()){
         while(!outputQueue.head().isCharacter()){
             cur = outputQueue.dequeue();
             operatorStack.push(cur);
         }
-        int value2 = operatorStack.pop().getValue();
-        int value1 = operatorStack.pop().getValue();
+        float value2 = operatorStack.pop().getValue();
+        float value1 = operatorStack.pop().getValue();
         cur = outputQueue.dequeue();
         switch (cur.getChar()) {
             case '+':
@@ -242,6 +244,11 @@ void CalculatorWindow::evaluateReversePolish(){
         }
         if (operatorStack.size() == 1){
             expression = QString::fromStdString(std::to_string(operatorStack.pop().getValue()));
+            if (expression.contains('.')){
+                while(expression.back() == '0'){
+                    expression.chop(1);
+                }
+            }
             ui->numberDisplay->setText(expression);
         }
     }
