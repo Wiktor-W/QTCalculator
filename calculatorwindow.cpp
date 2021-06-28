@@ -27,6 +27,7 @@ void CalculatorWindow::on_Evaluate_clicked()
     evaluateReversePolish();
     std::cout << "evaluated:" << std::endl;
     std::cout << expression.toStdString() << std::endl;
+    expression = "";
 }
 
 void CalculatorWindow::on_Zero_clicked()
