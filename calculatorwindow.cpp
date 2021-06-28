@@ -248,6 +248,9 @@ void CalculatorWindow::evaluateReversePolish(){
                 while(expression.back() == '0'){
                     expression.chop(1);
                 }
+                if(expression.back() == '.'){
+                    expression.chop(1);
+                }
             }
             ui->numberDisplay->setText(expression);
         }
